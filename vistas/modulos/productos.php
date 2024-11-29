@@ -498,9 +498,9 @@ MODAL EDITAR PRODUCTO
 
                 <span class="input-group-addon"><i class="fa fa-archive"></i></span>
 
-                <select class="form-control input-lg"  name="nuevoUnidad" required>
+                <select class="form-control input-lg"  name="editarUnidad" id="editarUnidad" required>
 
-                <option value="caja">Caja</option>
+                  <option value="caja">Caja</option>
                   <option value="galón">Galón</option>
                   <option value="kg">Kilogramo</option>
                   <option value="lt">Litro</option>
