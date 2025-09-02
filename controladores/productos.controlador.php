@@ -130,8 +130,8 @@ class ControladorProductos{
 							   "descripcion" => $_POST["nuevaDescripcion"],
 							   "stock" => $_POST["nuevoStock"],
 							   "unidad" => $_POST["nuevoUnidad"],
-							   "precio_compra" => $_POST["nuevoPrecioCompra"],
-							   "precio_venta" => $_POST["nuevoPrecioVenta"],
+							//    "precio_compra" => $_POST["nuevoPrecioCompra"],
+							//    "precio_venta" => $_POST["nuevoPrecioVenta"],
 							   "imagen" => $ruta);
 	
 				$respuesta = ModeloProductos::mdlIngresarProducto($tabla, $datos);
@@ -282,9 +282,9 @@ class ControladorProductos{
 							   "codigo" => $_POST["editarCodigo"],
 							   "descripcion" => $_POST["editarDescripcion"],
 							   "stock" => $_POST["editarStock"],
-							   "unidad" => $_POST["editarUnidad"],
-							   "precio_compra" => $_POST["editarPrecioCompra"],
-							   "precio_venta" => $_POST["editarPrecioVenta"],
+							   "unidad" => $_POST["nuevoUnidad"],
+							//    "precio_compra" => $_POST["editarPrecioCompra"],
+							//    "precio_venta" => $_POST["editarPrecioVenta"],
 							   "imagen" => $ruta);
 
 				$respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);

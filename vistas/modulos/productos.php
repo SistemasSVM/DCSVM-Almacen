@@ -45,10 +45,6 @@ if($_SESSION["perfil"] == "Vendedor"){
 
         </button>
 
-        <button class="btn btn-info" data-toggle="modal" data-target="#modalCodigoBarras">
-          Generar código de barras
-        </button>
-
         <button id="btnDescargar" class="btn btn-success">
 
             Descargar Productos
@@ -72,8 +68,6 @@ if($_SESSION["perfil"] == "Vendedor"){
            <th>Descripción</th>
            <th>Unidad</th>
            <th>Categoría</th>
-           <th>Precio de compra</th>
-           <th>Precio de venta</th>
            <th>Stock</th>
            <th>Agregado</th>
            <th>Acciones</th>
@@ -226,68 +220,6 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            
-            <div class="form-group row">
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioCompra" name="nuevoPrecioCompra" step="any" min="0" placeholder="Precio de compra" required>
-
-                  </div>
-
-                </div>
-
-                <!-- ENTRADA PARA PRECIO VENTA -->
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="nuevoPrecioVenta" name="nuevoPrecioVenta" step="any" min="0" placeholder="Precio de venta" required>
-
-                  </div>
-                
-                  <br>
-
-                  <!-- CHECKBOX PARA PORCENTAJE -->
-
-                  <div class="col-xs-6">
-                    
-                    <div class="form-group">
-                      
-                      <label>
-                        
-                        <input type="checkbox" class="minimal porcentaje" checked>
-                        Utilizar procentaje
-                      </label>
-
-                    </div>
-
-                  </div>
-
-                  <!-- ENTRADA PARA PORCENTAJE -->
-
-                  <div class="col-xs-6" style="padding:0">
-                    
-                    <div class="input-group">
-                      
-                      <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-
-                      <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-            </div>
 
              <!-- ENTRADA PARA PRECIO COMPRA -->
 
@@ -498,9 +430,9 @@ MODAL EDITAR PRODUCTO
 
                 <span class="input-group-addon"><i class="fa fa-archive"></i></span>
 
-                <select class="form-control input-lg"  name="editarUnidad" id="editarUnidad" required>
+                <select class="form-control input-lg"  name="nuevoUnidad" required>
 
-                  <option value="caja">Caja</option>
+                <option value="caja">Caja</option>
                   <option value="galón">Galón</option>
                   <option value="kg">Kilogramo</option>
                   <option value="lt">Litro</option>
@@ -514,68 +446,6 @@ MODAL EDITAR PRODUCTO
               </div>
 
             </div>
-
-            <div class="form-group row">
-
-              <div class="col-xs-6">
-
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
-
-                  <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" step="any" min="0" required>
-
-                </div>
-
-              </div>
-
-              <!-- ENTRADA PARA PRECIO VENTA -->
-
-              <div class="col-xs-6">
-
-                <div class="input-group">
-                
-                  <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                  <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
-
-                </div>
-
-                <br>
-
-                <!-- CHECKBOX PARA PORCENTAJE -->
-
-                <div class="col-xs-6">
-                  
-                  <div class="form-group">
-                    
-                    <label>
-                      
-                      <input type="checkbox" class="minimal porcentaje" checked>
-                      Utilizar procentaje
-                    </label>
-
-                  </div>
-
-                </div>
-
-                <!-- ENTRADA PARA PORCENTAJE -->
-
-                <div class="col-xs-6" style="padding:0">
-                  
-                  <div class="input-group">
-                    
-                    <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-
-                    <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              </div>
 
              <!-- ENTRADA PARA PRECIO COMPRA -->
 
@@ -688,68 +558,6 @@ MODAL EDITAR PRODUCTO
 
 </div>
 
-    <div id="modalCodigoBarras" class="modal fade" role="dialog">
-      
-      <div class="modal-dialog">
-
-        <div class="modal-content">
-
-          <div class="modal-header" style="background:#3c8dbc; color:white">
-
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-  
-            <h4 class="modal-title">Selecciona un producto</h4>
-  
-          </div>
-  
-          <!--=====================================
-          CUERPO DEL MODAL
-          ======================================-->
-  
-          <div class="modal-body">
-  
-            <div class="box-body">
-  
-  
-              <form id="barcodeForm">
-                <div class="mb-3">
-                    <select class="form-control" id="codigoSelect" required>
-                        <option value="" disabled selected>Seleccione un código</option>
-                    </select>
-                </div> <br>
-
-                <button type="button" class="btn btn-primary w-100" id="generateBarcode">Generar Código de Barras</button>
-              </form>
-              <div id="barcodeContainer">
-                <svg id="barcode"></svg>
-              </div>
-              <button type="button" class="btn btn-success w-100" id="downloadBarcode">Descargar código de barras</button>
-          
-  
-            </div>
-  
-          </div>
-  
-          <!--=====================================
-          PIE DEL MODAL
-          ======================================-->
-  
-          <div class="modal-footer">
-  
-            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-  
-            <!-- <button type="submit" class="btn btn-primary">Guardar cambios</button> -->
-  
-          </div>
-
-        </div>
-
-      </div>
-    
-    </div>
-      
-
-
 <?php
 
   $eliminarProducto = new ControladorProductos();
@@ -757,8 +565,6 @@ MODAL EDITAR PRODUCTO
 
 ?>      
 
-<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
 
 <script>
@@ -776,79 +582,6 @@ MODAL EDITAR PRODUCTO
             window.URL.revokeObjectURL(url);
         })
         .catch(error => console.error('Error al descargar:', error));
-});
-
-document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch('../../../DCSVM-Almacen/fetchData/fetchBarcode.php'); // Archivo PHP para obtener los datos
-                const codigos = await response.json();
-                const codigoSelect = document.getElementById('codigoSelect');
-
-                codigos.forEach(codigo => {
-                    const option = document.createElement('option');
-                    option.value = codigo;
-                    option.textContent = codigo;
-                    codigoSelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error('Error al cargar los códigos:', error);
-            }
-        });
-
-         // Generar código de barras
-         document.getElementById('generateBarcode').addEventListener('click', () => {
-          const selectedCodigo = document.getElementById('codigoSelect').value;
-
-          if (!selectedCodigo) {
-            alert('Por favor, seleccione un código primero.');
-            return;
-          }
-
-          // Agregar "SKU " al principio del código seleccionado
-          const codigoConSKU = 'SKU ' + selectedCodigo;
-
-          // Renderizar el código de barras usando JsBarcode
-          JsBarcode("#barcode", codigoConSKU, {
-            format: "CODE128",
-            displayValue: true,
-            height: 100,
-            width: 2,
-            margin: 10
-          });
-        });
-
-        document.getElementById('downloadBarcode').addEventListener('click', () => {
-  const barcodeSVG = document.getElementById('barcode');
-
-  if (!barcodeSVG) {
-    alert('No se ha generado ningún código de barras.');
-    return;
-  }
-
-  // Convertir el SVG a una imagen PNG
-  const svgData = new XMLSerializer().serializeToString(barcodeSVG);
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-
-  const img = new Image();
-  const svgBlob = new Blob([svgData], { type: 'image/svg+xml' });
-  const url = URL.createObjectURL(svgBlob);
-  img.onload = function () {
-    canvas.width = img.width;
-    canvas.height = img.height;
-    ctx.drawImage(img, 0, 0);
-    
-    // Crear la URL de descarga para la imagen PNG
-    const imgURL = canvas.toDataURL('image/png');
-    
-    // Crear un enlace de descarga y hacer clic en él para descargar la imagen
-    const link = document.createElement('a');
-    link.href = imgURL;
-    link.download = 'codigo_de_barras.png';
-    link.click();
-  };
-  
-  img.src = url;
 });
 
 </script>
