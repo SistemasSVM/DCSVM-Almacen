@@ -410,17 +410,25 @@ MODAL EDITAR PRODUCTO
             </div>
 
              <!-- ENTRADA PARA STOCK -->
-
              <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-
-                <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" required>
-
+              <div class="row">
+                <!-- Input para mostrar el stock actual (solo lectura) -->
+                <div class="col-xs-6">
+                  <label>Existencia</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                    <input type="number" class="form-control input-lg" id="editarStock" name="editarStock" min="0" readonly required>
+                  </div>
+                </div>
+                <!-- Input para agregar nuevas unidades al stock -->
+                <div class="col-xs-6">
+                  <label>Agregar existencias</label>
+                  <div class="input-group">
+                    <input type="number" class="form-control input-lg" id="agregarStock" placeholder="Agregar" min="0" value="0" required>
+                    <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                  </div>
+                </div>
               </div>
-
             </div>
 
             <!-- ENTRADA PARA UNIDAD -->
@@ -430,7 +438,7 @@ MODAL EDITAR PRODUCTO
 
                 <span class="input-group-addon"><i class="fa fa-archive"></i></span>
 
-                <select class="form-control input-lg"  name="nuevoUnidad" required>
+                <select class="form-control input-lg" id="nuevoUnidad" name="nuevoUnidad" required>
 
                 <option value="caja">Caja</option>
                   <option value="galón">Galón</option>
@@ -446,70 +454,6 @@ MODAL EDITAR PRODUCTO
               </div>
 
             </div>
-
-             <!-- ENTRADA PARA PRECIO COMPRA -->
-
-             <!-- <div class="form-group row">
-
-                <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-up"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="editarPrecioCompra" name="editarPrecioCompra" step="any" min="0" required>
-
-                  </div>
-
-                </div> -->
-
-                <!-- ENTRADA PARA PRECIO VENTA -->
-
-                <!-- <div class="col-xs-6">
-                
-                  <div class="input-group">
-                  
-                    <span class="input-group-addon"><i class="fa fa-arrow-down"></i></span> 
-
-                    <input type="number" class="form-control input-lg" id="editarPrecioVenta" name="editarPrecioVenta" step="any" min="0" readonly required>
-
-                  </div>
-                
-                  <br> -->
-
-                  <!-- CHECKBOX PARA PORCENTAJE -->
-
-                  <!-- <div class="col-xs-6">
-                    
-                    <div class="form-group">
-                      
-                      <label>
-                        
-                        <input type="checkbox" class="minimal porcentaje" checked>
-                        Utilizar procentaje
-                      </label>
-
-                    </div>
-
-                  </div> -->
-
-                  <!-- ENTRADA PARA PORCENTAJE -->
-<!-- 
-                  <div class="col-xs-6" style="padding:0">
-                    
-                    <div class="input-group">
-                      
-                      <input type="number" class="form-control input-lg nuevoPorcentaje" min="0" value="40" required>
-
-                      <span class="input-group-addon"><i class="fa fa-percent"></i></span>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-            </div> -->
 
             <!-- ENTRADA PARA SUBIR FOTO -->
 
