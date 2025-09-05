@@ -156,8 +156,6 @@ if($xml){
                   <td>
 
                     <div class="btn-group">
-
-                      <a class="btn btn-success" href="index.php?ruta=ventas&xml='.$value["codigo"].'">xml</a>
                         
                       <button class="btn btn-info btnImprimirFactura" codigoVenta="'.$value["codigo"].'">
 
